@@ -11,7 +11,6 @@ import (
 
 type Response events.APIGatewayProxyResponse
 
-// Handler is our lambda handler invoked by the `lambda.Start` function call
 func Handler(ctx context.Context) (Response, error) {
 	var buf bytes.Buffer
 
