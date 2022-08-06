@@ -3,8 +3,11 @@ service: thenotetaker
 frameworkVersion: '3'
 
 provider:
+  stage: dev
   name: aws
   runtime: go1.x
+  environment:
+    DYNAMODB_TABLE: ${self:service}-${self:stage, self:provider.stage}
 
 package:
   patterns:
@@ -42,4 +45,4 @@ resources:
         ProvisionedThroughput:
           ReadCapacityUnits: 1
           WriteCapacityUnits: 1
-        TableName: notes
+        TableName: ${self:provider.environment.DYNAMODB_TABLE}
