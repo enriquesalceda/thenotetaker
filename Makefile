@@ -1,7 +1,7 @@
 .PHONY: build clean deploy format
 
 build:
-	env GOARCH=amd64 GOOS=linux go build -ldflags="-s -w" -o bin/list notes/list.go
+	env GOARCH=amd64 GOOS=linux go build -ldflags="-s -w" -o bin/list handlers/list.go
 
 clean:
 	rm -rf ./bin
